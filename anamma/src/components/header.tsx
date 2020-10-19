@@ -2,18 +2,18 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header>
+    <header className="header">
       <div className="header__inner">
         <div className="logo">ANAMMA.</div>
         <nav>
-          <u>
+          <ul>
             <li>
               <a href="/">About</a>
             </li>
             <li className="cta">
               <a href="/">Book now.</a>
             </li>
-          </u>
+          </ul>
         </nav>
       </div>
     </header>
