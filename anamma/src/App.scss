@@ -1,6 +1,10 @@
 @import url("https://use.typekit.net/tee8rgv.css");
 
 
+:root {
+  font-size: 0.8rem;
+}
+
 /* COLOURS */
 
 $white: #f7f7f7;
@@ -45,8 +49,8 @@ body,
   
   &__inner {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    font-size: 1rem;
     .logo {
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -60,7 +64,8 @@ body,
       display: flex;
       li {
         list-style: none;
-        margin: 0 3rem;
+        margin-left: 1rem;
+        min-width: max-content;
         a {
           text-decoration: none;
           color: inherit;
@@ -69,7 +74,7 @@ body,
           a {
             background-color: $black;
             font-weight: 700;
-            padding: 1rem 1.5rem;
+            padding: 0.75rem 1rem;
             border-radius: 7px;
             &:hover {
               background-color: lighten($black, $amount: 5);
@@ -94,10 +99,19 @@ body,
 
 .headline {
   color: $white;
+  max-width: 100%;
+  margin-bottom: 12vh;
   h1 {
-    font-size: calc(2rem + 5vw);
+    font-size: calc(1.2rem + 6vw);
     letter-spacing: -0.05em;
+    width: 100%;
     max-width: 15ch;
-    line-height: 1;
+    line-height: 0.9;
+  }
+  h2 {
+    font-size: calc(1rem + 2vw);
+    width: 100%;
+    max-width: 27ch;
+    
   }
 }
