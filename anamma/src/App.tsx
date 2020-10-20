@@ -4,7 +4,7 @@ import './App.scss';
 /* Components */
 import Header from "./components/header";
 /* React Three Fiber */
-import { Canvas } from "react-three-fiber";
+import { Canvas, useFrame } from "react-three-fiber";
 import { Html, Loader, useGLTFLoader } from "drei";
 
 const modelPath: string = '/forceps1.gltf';
@@ -39,6 +39,26 @@ const Lights = () => {
   );
 };
 
+const HTMLContent = () => {
+  const ref = useRef<any | null>(null);
+  useFrame(() => (ref.current.rotation.y += 0.0018));
+  return (
+    <group position={[0, 0, 0]}>
+      <mesh ref={ref} position={[0, 0, 0]} scale={[1.2, 1.2, 1.2]} rotation={[0,10,10]}>
+        <Model />
+      </mesh>
+      <Html fullscreen>
+        <div className="container">
+          <div className="headline">
+            <h1>The only interview course you need.</h1>
+            <h2>Obstetrics and Gynaecology ST1 &amp; ST3 Interview Masterclasses.</h2>
+          </div>
+        </div>
+      </Html>
+    </group>
+  )
+}
+
 function App() {
   
   return (
@@ -50,19 +70,7 @@ function App() {
         camera={{ position:[0, 0, 120], fov: 20 }}>
         <Lights />
         <Suspense fallback={null}>
-          <group position={[0, 0, 0]}>
-            <mesh position={[0, 0, 0]} scale={[1.2, 1.2, 1.2]} rotation={[0,10,10]}>
-              <Model />
-            </mesh>
-            <Html fullscreen>
-              <div className="container">
-                <div className="headline">
-                  <h1>The only interview course you need.</h1>
-                  <h2>Obstetrics and Gynaecology ST1 &amp; ST3 Interview Masterclasses.</h2>
-                </div>
-              </div>
-              </Html>
-          </group>
+          <HTMLContent />
         </Suspense>
       </Canvas>
       
