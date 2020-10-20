@@ -13,14 +13,12 @@ function App() {
     <>
       <Header />
       <Suspense fallback={null}>
-        <Html>
           <div className="container">
             <div className="headline">
               <h1>The only interview course you need.</h1>
               <h2>Obstetrics and Gynaecology ST1 &amp; ST3 Interview Masterclasses.</h2>
             </div>
           </div>
-        </Html>
       </Suspense>
       <Canvas
         concurrent
